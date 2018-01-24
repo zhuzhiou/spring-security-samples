@@ -1,0 +1,15 @@
+spring:
+    thymeleaf:
+        cache: false
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.150.129:3306/security?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: develop
+security:
+    basic:
+        enabled: false
+    user:
+        name: admin
+        password: admin
+        role: ADMIN
