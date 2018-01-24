@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 @Controller
-public class SpringBootSampleHelloWorldApplication extends WebSecurityConfigurerAdapter {
+public class SpringBootSampleApplication extends WebSecurityConfigurerAdapter {
 
     @GetMapping(path = "/")
     public String index() {
@@ -30,6 +30,6 @@ public class SpringBootSampleHelloWorldApplication extends WebSecurityConfigurer
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootSampleHelloWorldApplication.class, args);
+        SpringApplication.run(SpringBootSampleApplication.class, args);
     }
 }
