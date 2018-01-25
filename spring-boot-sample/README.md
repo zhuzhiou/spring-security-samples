@@ -1,6 +1,8 @@
 基于数据库的安全认证
 ---
 
+本示例的用户数据，`url` 授权都存储在数据库上，解决 `helloworld` 的痛点： *用户信息* 与 *资源授权* 都是写死在配置文件。
+
 mysql脚本
 ---
 
@@ -56,3 +58,9 @@ CREATE TABLE `persistent_logins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ```
+
+参考文档：
+
+- [spring security动态配置url权限](https://segmentfault.com/a/1190000010672041)
+- [spring security之用户 权限 url存储在数据库](https://www.cnblogs.com/visoncheng/p/3335768.html)
+- [Spring Security系列四 自定义决策管理器(动态权限码)](https://www.ktanx.com/blog/p/4929)
