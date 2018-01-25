@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户管理</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-to">
+    <div class="container">
+        <div class="navbar-right">
+            <a href="#" th:href="@{/user/query}" role="button" class="btn btn-default navbar-btn">用户管理</a>
+            <a href="#" th:href="@{/role/query}" role="button" class="btn btn-default navbar-btn">角色管理</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>账号</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="user:${users}">
+                <td th:text="${user.userName}">用户名</td>
+                <td th:text="${user.gender}">性别</td>
+                <td>
+                    <a href="/user/edit?userName=13800138567" th:href="@{/user/edit(userName=${user.userName})}" role="button" class="btn btn-xs btn-danger">编辑</a>
+                    <a href="/user/delete?userName=13800138567" th:href="@{/user/delete(userName=${user.userName})}" role="button" class="btn btn-xs btn-danger">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
