@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户管理</title>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-to">
+    <div class="container">
+        <div class="navbar-right">
+            <a href="#" th:href="@{/user/query}" role="button" class="btn btn-default navbar-btn">用户管理</a>
+            <a href="#" th:href="@{/role/query}" role="button" class="btn btn-default navbar-btn">角色管理</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>角色</th>
+                <th>角色描述</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="role:${roles}">
+                <td th:text="${role.roleName}">角色</td>
+                <td th:text="${role.description}">角色描述</td>
+                <td>
+                    <a href="/role/edit?roleName=admin" th:href="@{/role/edit(roleName=${role.roleName})}" role="button" class="btn btn-xs btn-danger">编辑</a>
+                    <a href="/role/delete?roleName=admin" th:href="@{/role/delete(roleName=${role.roleName})}" role="button" class="btn btn-xs btn-danger">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

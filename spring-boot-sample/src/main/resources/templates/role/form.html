@@ -2,7 +2,7 @@
 <html lang="cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>用户表单</title>
+    <title>角色表单</title>
     <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.css}" rel="stylesheet" />
 </head>
 <body>
@@ -15,22 +15,15 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row" th:object="${user}">
-        <form method="post" th:action="@{*{id} == null ? '/user/create' : '/user/update'}">
+    <div class="row" th:object="${role}">
+        <form method="post" th:action="@{*{id} == null ? '/role/create' : '/role/update'}">
             <div class="form-group">
-                <label>账号</label>
-                <input type="text" name="userName" class="form-control" placeholder="请输入手机号" th:value="*{userName}" />
+                <label>角色名称</label>
+                <input type="text" name="roleName" class="form-control" placeholder="请输入英文编码" th:value="*{roleName}" />
             </div>
             <div class="form-group">
-                <label>性别</label>
-                <div class="radio">
-                    <label class="radio-inline">
-                        <input type="radio" name="gender" value="male" th:checked="*{gender} == 'male'" /> 男
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="gender" value="female" th:checked="*{gender} == 'female'" /> 女
-                    </label>
-                </div>
+                <label>角色描述</label>
+                <textarea name="description" class="form-control" placeholder="角色描述" th:text="*{description}"></textarea>
             </div>
             <input type="hidden" name="id" th:value="*{id}" />
             <button type="submit" class="btn btn-primary">提交</button>

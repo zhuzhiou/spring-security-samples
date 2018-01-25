@@ -1,14 +1,20 @@
 package samples.security.dao;
 
-import samples.security.entity.User;
+import samples.security.entity.UserPo;
 
 import java.util.List;
 
 public interface UserDao {
 
-    List<User> selectMany();
+    UserPo selectOneById(String userId);
 
-    void saveOne(User user);
+    UserPo selectOneByName(String userName);
 
-    void deleteOne(String username);
+    List<UserPo> selectMany();
+
+    void insertOne(UserPo userPo);
+
+    void updateOne(UserPo userPo);
+
+    void deleteOne(String userName);
 }

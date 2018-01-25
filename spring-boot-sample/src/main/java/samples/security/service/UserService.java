@@ -1,14 +1,18 @@
 package samples.security.service;
 
-import samples.security.entity.User;
+import samples.security.entity.UserPo;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getUsers();
+    UserPo getUser(String userName);
 
-    void saveUser(User user);
+    List<UserPo> getUsers();
 
-    void deleteUser(String username);
+    void createUser(UserPo userPo);
+
+    void updateUser(UserPo userPo);
+
+    void deleteUser(String userName);
 }
