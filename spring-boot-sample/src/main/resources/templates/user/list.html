@@ -5,6 +5,23 @@
     <title>用户管理</title>
 </head>
 <body>
-用户管理91
+<table class="table">
+    <tr>
+        <th>账号</th>
+        <th>性别</th>
+        <th>邮箱</th>
+        <th>手机号码</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="user,userStat in ${users}">
+        <td th:text="${user.username}">用户名</td>
+        <td th:text="${user.gender}">性别</td>
+        <td th:text="${user.email}">邮箱</td>
+        <td th:text="${user.mobile}">手机号码</td>
+        <td>
+            <a role="button" class="btn btn-sm">删除</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
-    @PostMapping(path = "/create")
-    public String create() {
-        return "user/create";
+    @PostMapping(path = "/add")
+    public String add() {
+        return "form";
     }
 
-    @GetMapping(path = "/query")
-    public String query() {
-        System.out.println("123faf");
+    @GetMapping(path = "/list")
+    public String list() {
+
         return "user/list";
     }
 
