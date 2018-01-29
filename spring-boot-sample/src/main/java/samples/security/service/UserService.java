@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    UserPo getUser(String userName);
+    UserPo getUser(String userId);
 
     List<UserPo> getUsers();
 

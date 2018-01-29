@@ -8,8 +8,6 @@ public interface UserDao {
 
     UserPo selectOneById(String userId);
 
-    UserPo selectOneByName(String userName);
-
     List<UserPo> selectMany();
 
     void insertOne(UserPo userPo);

@@ -23,23 +23,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public UserPo selectOneByName(String userName) {
-        return jdbcTemplate.queryForObject("select * from sys_user where user_name = ?", userRowMapper, userName);
-    }
-
-    @Override
     public List<UserPo> selectMany() {
         return jdbcTemplate.query("select * from sys_user", userRowMapper);
     }
 
     @Override
     public void insertOne(UserPo userPo) {
-        jdbcTemplate.update("insert into sys_user(USER_ID, USER_NAME, GENDER, PASSWORD, PASSWORD_SALT, CREATE_TIME, LAST_UPDATE_TIME) values(?, ?, ?, ?, ?, now(), now())", (PreparedStatement ps) -> {
+        jdbcTemplate.update("insert into sys_user(USER_ID, USER_NAME, GENDER, PASSWORD, CREATE_TIME, LAST_UPDATE_TIME) values(?, ?, ?, ?, now(), now())", (PreparedStatement ps) -> {
             ps.setString(1, userPo.getId());
             ps.setString(2, userPo.getUserName());
             ps.setString(3, userPo.getGender());
             ps.setString(4, userPo.getPassword());
-            ps.setString(5, userPo.getPasswordSalt());
         });
     }
 

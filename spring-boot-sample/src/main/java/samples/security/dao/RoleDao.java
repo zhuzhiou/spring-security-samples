@@ -10,6 +10,8 @@ public interface RoleDao {
 
     List<RolePo> selectMany();
 
+    List<RolePo> selectMany(String userName);
+
     void insertOne(RolePo rolePo);
 
     void updateOne(RolePo rolePo);

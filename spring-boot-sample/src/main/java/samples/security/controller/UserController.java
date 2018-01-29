@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import samples.security.entity.RolePo;
 import samples.security.entity.UserPo;
+import samples.security.service.RoleService;
 import samples.security.service.UserService;
 
 import java.util.List;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 @RequestMapping("/user")
 @Controller
@@ -16,9 +20,21 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(path = "/add")
-    public String add(Model model) {
-        UserPo user = new UserPo();
+    @Autowired
+    private RoleService roleService;
+
+    @GetMapping(path = "/form")
+    public String edit(@RequestParam(name = "userId", required = false) String userId, Model model) {
+        List<RolePo> roles = roleService.getRoles();
+        model.addAttribute("roles", roles);
+
+        UserPo user = null;
+        if (isNotBlank(userId)) {
+            user = userService.getUser(userId);
+        }
+        if (user == null) {
+            user = new UserPo();
+        }
         model.addAttribute("user", user);
         return "user/form";
     }
@@ -36,13 +52,6 @@ public class UserController {
         return "user/table";
     }
 
-    @GetMapping(path = "/edit")
-    public String edit(@RequestParam(name = "userName") String userName, Model model) {
-        UserPo user = userService.getUser(userName);
-        model.addAttribute("user", user);
-        return "user/form";
-    }
-
     @PostMapping(path = "/update")
     public String update(@ModelAttribute(name = "user") UserPo user) {
         userService.updateUser(user);
@@ -50,8 +59,8 @@ public class UserController {
     }
 
     @GetMapping(path = "/delete")
-    public String delete(@RequestParam(name = "userName") String userName) {
-        userService.deleteUser(userName);
+    public String delete(@RequestParam(name = "userId") String userId) {
+        userService.deleteUser(userId);
         return "redirect:/user/query";
     }
 }

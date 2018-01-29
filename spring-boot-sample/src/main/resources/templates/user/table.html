@@ -26,8 +26,8 @@
                 <td th:text="${user.userName}">用户名</td>
                 <td th:text="${user.gender}">性别</td>
                 <td>
-                    <a href="/user/edit?userName=13800138567" th:href="@{/user/edit(userName=${user.userName})}" role="button" class="btn btn-xs btn-danger">编辑</a>
-                    <a href="/user/delete?userName=13800138567" th:href="@{/user/delete(userName=${user.userName})}" role="button" class="btn btn-xs btn-danger">删除</a>
+                    <a href="/user/form?userId=xxx" th:href="@{/user/edit(userId=${user.id})}" role="button" class="btn btn-xs btn-danger">编辑</a>
+                    <a href="/user/delete?userId=xxx" th:href="@{/user/delete(userId=${user.id})}" role="button" class="btn btn-xs btn-danger">删除</a>
                 </td>
             </tr>
         </table>

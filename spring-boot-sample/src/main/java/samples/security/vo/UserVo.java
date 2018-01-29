@@ -1,10 +1,9 @@
-package samples.security.entity;
+package samples.security.vo;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @lombok.Data
-public class UserPo implements Serializable {
+public class UserVo {
 
     private String id;
 
@@ -14,9 +13,7 @@ public class UserPo implements Serializable {
 
     private String gender;
 
-    private String[] roleIds;
-
-    private String[] roleNames;
+    private String[] roles;
 
     private LocalDateTime createTime;
 
