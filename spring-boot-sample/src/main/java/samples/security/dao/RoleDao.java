@@ -6,11 +6,9 @@ import java.util.List;
 
 public interface RoleDao {
 
-    RolePo selectOne(String roleName);
+    RolePo selectOne(String roleId);
 
     List<RolePo> selectMany();
-
-    List<RolePo> selectMany(String userName);
 
     void insertOne(RolePo rolePo);
 

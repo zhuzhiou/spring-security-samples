@@ -18,8 +18,8 @@ public class RoleDaoImpl implements RoleDao {
     private RoleRowMapper roleRowMapper;
 
     @Override
-    public RolePo selectOne(String roleName) {
-        return jdbcTemplate.queryForObject("select * from sys_role where ROLE_NAME = ?", roleRowMapper, roleName);
+    public RolePo selectOne(String roleId) {
+        return jdbcTemplate.queryForObject("select * from sys_role where ROLE_ID = ?", roleRowMapper, roleId);
     }
 
     @Override

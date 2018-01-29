@@ -7,9 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-import samples.security.dao.RoleDao;
 import samples.security.dao.UserDao;
-import samples.security.entity.RolePo;
+import samples.security.dao.UserRoleDao;
 import samples.security.entity.UserPo;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Autowired
-    private RoleDao roleDao;
+    private UserRoleDao userRoleDao;
 
     @Autowired
     private TimeBasedGenerator timeBasedGenerator;
@@ -60,11 +59,8 @@ public class UserServiceImpl implements UserService {
         userDao.insertOne(userPo);
 
         if (userPo.getRoleIds() != null) {
-            RolePo rolePo = new RolePo();
             for (String roleId : userPo.getRoleIds()) {
-                rolePo.setId(remove(timeBasedGenerator.generate().toString(), "-"));
-                rolePo.setRoleName(role);
-                ro
+                userRoleDao.insertOne(userPo.getId(), roleId);
             }
         }
     }

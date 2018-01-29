@@ -18,7 +18,6 @@ public class UserRowMapper implements RowMapper<UserPo> {
         user.setUserName(rs.getString("USER_NAME"));
         user.setGender(rs.getString("GENDER"));
         user.setPassword(rs.getString("PASSWORD"));
-        user.setPasswordSalt(rs.getString("PASSWORD_SALT"));
         Timestamp timestamp = rs.getTimestamp("CREATE_TIME");
         if (timestamp != null) {
             user.setCreateTime(timestamp.toLocalDateTime());
