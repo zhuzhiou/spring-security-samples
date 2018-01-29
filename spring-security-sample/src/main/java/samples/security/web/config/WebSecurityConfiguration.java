@@ -21,6 +21,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //@formater:off
         http
+                .httpBasic()
+                .disable()
                 .formLogin()
                 .and()
                 .authorizeRequests()
