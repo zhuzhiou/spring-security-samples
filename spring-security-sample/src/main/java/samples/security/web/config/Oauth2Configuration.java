@@ -1,7 +1,7 @@
-package samples.security.config;
+package samples.security.web.config;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SecurityConfiguration {
+public class Oauth2Configuration {
 }
