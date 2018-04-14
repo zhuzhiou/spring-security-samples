@@ -10,7 +10,6 @@
 
     <modules>
         <module>spring-security-sample</module>
-        <module>spring-boot-sample-helloworld</module>
         <module>spring-boot-sample</module>
     </modules>
 
