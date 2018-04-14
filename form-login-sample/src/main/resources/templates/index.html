@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" th:href="@{/}">后台管理系统</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#" th:href="@{/sample1}">sample1</a>
+            </li>
+            <li>
+                <a href="#" th:href="@{/sample2}">sample2</a>
+            </li>
+            <li>
+                <a href="#" th:href="@{/sample3}">sample3</a>
+            </li>
+            <li>
+                <a href="#" th:href="@{/sample4}">sample4</a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span sec:authentication="name">user</span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">修改密码</a></li>
+                    <li><a href="#" th:href="@{/logout}">退出</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="list-group">
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">/sample1</h4>
+                    <p class="list-group-item-text">全部可以访问</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">/sample2</h4>
+                    <p class="list-group-item-text">管理员角色可以访问</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">/sample3</h4>
+                    <p class="list-group-item-text">登陆用户可以访问</p>
+                </div>
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">/sample4</h4>
+                    <p class="list-group-item-text">管理员角色、用户角色都可以访问</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

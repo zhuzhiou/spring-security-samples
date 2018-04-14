@@ -1,0 +1,13 @@
+spring:
+    thymeleaf:
+        cache: false
+    http:
+        encoding:
+            force: true
+security:
+    basic:
+        enabled: false
+    oauth2:
+        resource:
+            filter-order: 3
+debug: false
