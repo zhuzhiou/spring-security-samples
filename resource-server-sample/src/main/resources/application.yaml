@@ -1,0 +1,7 @@
+spring:
+    http:
+        encoding:
+            force: true
+    redis:
+        host: 192.168.150.129
+debug: false

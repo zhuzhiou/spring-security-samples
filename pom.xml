@@ -13,6 +13,8 @@
         <module>http-basic-sample</module>
         <module>digest-auth-sample</module>
         <module>oauth2-server-sample</module>
+        <module>authorization-server-sample</module>
+        <module>resource-server-sample</module>
     </modules>
 
     <dependencies>
