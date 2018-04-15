@@ -1,0 +1,10 @@
+spring:
+    thymeleaf:
+        cache: false
+    http:
+        encoding:
+            force: true
+security:
+    basic:
+        enabled: false
+debug: false
